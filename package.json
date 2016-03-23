@@ -1,0 +1,13 @@
+{
+  "name": "unpublished-dependencies",
+  "description": "Check for unpublished dependencies in your Node.js project",
+  "version": "1.0.0",
+  "bin": "unpublished-dependencies.js",
+  "preferGlobal": true,
+  "author": "NodeSource Inc. <npm@nodesource.com>",
+  "license": "MIT",
+  "dependencies": {
+    "find": "^0.2.4",
+    "prettyjson": "^1.1.3"
+  }
+}
