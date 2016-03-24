@@ -125,7 +125,6 @@ keynames
 kik
 kik-starter
 kurdish-time
-left-pad
 less-common-words
 level-client
 level-flush
