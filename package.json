@@ -9,5 +9,6 @@
   "dependencies": {
     "find": "^0.2.4",
     "prettyjson": "^1.1.3"
-  }
+  },
+  "repository": "https://github.com/nodesource/unpublished-dependencies.git"
 }
