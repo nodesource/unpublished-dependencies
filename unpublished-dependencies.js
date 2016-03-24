@@ -12,7 +12,7 @@ var deps = findDeps(process.argv[2])
 if (deps.length > 0) {
   console.log('We found the following unpublished dependencies in your projects:\n')
   console.log(prettyjson.render(deps) + '\n')
-  console.log('Please feel free to open a ticket on https://support.nodesource.com and include the output of this command, our N|Support team will be able to assist you on how to proceed.')
+  console.log('If you are a N|Support customer, please feel free to open a ticket on https://support.nodesource.com and include the output of this command, our N|Support team will be able to assist you on how to proceed.')
 } else {
   console.log('No unpublished dependencies found in your Node.js projects')
 }
@@ -35,15 +35,27 @@ function findDeps (dir) {
     try {
       pkg = require(path.resolve(dir, packageName))
       var dependencies = modules.filter(function (item) {
-        return pkg.dependencies && pkg.dependencies[item] ||
-          pkg.devDependencies && pkg.devDependencies[item]
+        return pkg.dependencies && pkg.dependencies[item]
       })
 
-      if (dependencies.length > 0) {
-        depended.push({
-          package: packageName,
-          dependencies: dependencies
-        })
+      var devDependencies = modules.filter(function (item) {
+        return pkg.devDependencies && pkg.devDependencies[item]
+      })
+
+      if (dependencies.length > 0 || devDependencies.length > 0) {
+        var found = {
+          package: packageName
+        }
+
+        if (dependencies.length > 0) {
+           found.dependencies = dependencies
+        }
+
+        if (devDependencies.length > 0) {
+          found.devDependencies = devDependencies
+        }
+
+        depended.push(found)
       }
     } catch (e) {
     }
