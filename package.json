@@ -1,7 +1,7 @@
 {
   "name": "unpublished-dependencies",
   "description": "Check for unpublished dependencies in your Node.js project",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "bin": "unpublished-dependencies.js",
   "preferGlobal": true,
   "author": "NodeSource Inc. <npm@nodesource.com>",
